@@ -1,0 +1,6 @@
+*.git
+hooks
+info
+HEAD
+config
+description
