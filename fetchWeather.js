@@ -106,7 +106,7 @@ function Weather(state,city){
     date = new Date(year,month,day);
 
     var forecastData = new DayForecast(date,today);
-
+    console.log(forecastData.getDate());
     return forecastData;
 
   };
@@ -132,6 +132,7 @@ function DayForecast( date, forecastInfo ){
   var humidity = forecastInfo.avehumidity;
 
   /**
+   * @return {date [Date Object]} - today's date
    */
   this.getDate = function(){
     return date;
