@@ -12,8 +12,8 @@ $(document).ready(function(){
    * Uses Deferred on the retrieve call in order to
    * only call parseDayWeather when the retrieve method is done.
    *
-   * @param: forecast {JSON Object} - the deferred retrieve method call
-   * @param: weatherForecast {JSON Object} -  is the week's forecast in json.
+   * @param: {forecast [JSON Object] } - the deferred retrieve method call
+   * @param: {weatherForecast [JSON Object] } -  is the week's forecast in json.
    */
   $.when(forecast).done(function(weatherForecast){
       weatherapp.parseDayWeather(weatherForecast.simpleforecast);
@@ -92,7 +92,7 @@ function Weather(state,city){
 
   /**
    * This function will handle parsing through the weather for a day.
-   * @param weather {JSON Object} -
+   * @param { weather [JSON Object] } -
    */
   this.parseDayWeather = function(weather){
     // today
@@ -105,16 +105,71 @@ function Weather(state,city){
     // store date object
     date = new Date(year,month,day);
 
-    // get weather stats
-    var high = today.high.farenheit;
-    var low = today.low.farenheit;
-    var conditions = today.conditions;
-    var icon = today.icon_url;
-    var windMax = today.maxwind.mph;
-    var humidity = today.avehumidity;
+    var forecastData = new DayForecast(date,today);
 
-
-    console.log(conditions);
+    return forecastData;
 
   };
 };
+
+/**
+ * This class will hold all necessary data for the forecast
+ * of a certain day. Not all of the info provided by wunderground is
+ * relevant so this class is made to store all of the data that we want
+ *
+ * @constructor
+ * @param {date [Date Object] } - Date object representing today's date
+ * @param {forecastInfo [JSON Object] } - holds the forecastInfo for today.
+ *          Data was pulled from Wunderground. Not all attributes are relevant.
+ */
+function DayForecast( date, forecastInfo ){
+  /** @private member variables */
+  var high = forecastInfo.high.farenheit;
+  var low = forecastInfo.low.farenheit;
+  var conditions = forecastInfo.conditions;
+  var icon = forecastInfo.icon_url;
+  var windMax = forecastInfo.maxwind.mph;
+  var humidity = forecastInfo.avehumidity;
+
+  /**
+   */
+  this.getDate = function(){
+    return date;
+  };
+
+  /**
+   */
+  this.getHighTemp = function(){
+    return high;
+  };
+
+  /**
+   */
+  this.getLowTemp = function(){
+    return low;
+  };
+
+  /**
+   */
+  this.getDayConditions = function(){
+    return condtions;
+  };
+
+  /**
+   */
+  this.getIconUrl = function(){
+    return icon;
+  };
+
+  /**
+   */
+  this.getMaxWindSpeed = function(){
+    return windMax;
+  };
+
+  /**
+   */
+  this.getHumidity = function(){
+    return humidity;
+  };
+}
