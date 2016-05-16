@@ -95,6 +95,26 @@ function Weather(state,city){
    * @param weather {JSON Object} -
    */
   this.parseDayWeather = function(weather){
-    console.log(weather);
+    // today
+    var today = weather.forecastday[0];
+    // get Date
+    var date = today.date;
+    var month = date.month;
+    var day = date.day;
+    var year = date.year;
+    // store date object
+    date = new Date(year,month,day);
+
+    // get weather stats
+    var high = today.high.farenheit;
+    var low = today.low.farenheit;
+    var conditions = today.conditions;
+    var icon = today.icon_url;
+    var windMax = today.maxwind.mph;
+    var humidity = today.avehumidity;
+
+
+    console.log(conditions);
+
   };
 };
