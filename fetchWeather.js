@@ -16,8 +16,10 @@ $(document).ready(function(){
    * @param: {weatherForecast [JSON Object] } -  is the week's forecast in json.
    */
   $.when(forecast).done(function(weatherForecast){
-      weatherapp.parseDayWeather(weatherForecast.simpleforecast);
+      var forecastObj = weatherapp.parseDayWeather(weatherForecast.simpleforecast);
   });
+
+
 
 
 
@@ -106,10 +108,24 @@ function Weather(state,city){
     date = new Date(year,month,day);
 
     var forecastData = new DayForecast(date,today);
-    console.log(forecastData.getDate());
-    return forecastData;
 
+    $("#date").text(month+"/"+day+"/"+year);
+    $(".weather").append("<ul class='weatherItem'></ul>");
+
+    var list = $(".weatherItem");
+    console.log(forecastData.getHighTemp());
+    list.append("<li class='high'>"+forecastData.getHighTemp()+"</li>");
+    list.append("<li class='low'>"+forecastData.getLowTemp()+"</li>");
+    list.append("<li class='wind'>"+forecastData.getMaxWindSpeed()+"</li>");
+    list.append("<li class='humidity'>"+forecastData.getHumidity()+"</li>");
+
+    // add thumbnail image
+
+    var imageItem = "<li><img src="+forecastData.getIconUrl()+"></li>";
+    list.append(imageItem);
   };
+
+
 };
 
 /**
@@ -124,8 +140,8 @@ function Weather(state,city){
  */
 function DayForecast( date, forecastInfo ){
   /** @private member variables */
-  var high = forecastInfo.high.farenheit;
-  var low = forecastInfo.low.farenheit;
+  var high = forecastInfo.high.fahrenheit;
+  var low = forecastInfo.low.fahrenheit;
   var conditions = forecastInfo.conditions;
   var icon = forecastInfo.icon_url;
   var windMax = forecastInfo.maxwind.mph;
@@ -139,36 +155,42 @@ function DayForecast( date, forecastInfo ){
   };
 
   /**
+   * @return (high) - The high temp for the day
    */
   this.getHighTemp = function(){
     return high;
   };
 
   /**
+   * @return {low} - The low temp for the day
    */
   this.getLowTemp = function(){
     return low;
   };
 
   /**
+   * @return {conditions} - The weather conditions for that day
    */
   this.getDayConditions = function(){
-    return condtions;
+    return conditions;
   };
 
   /**
+   * @return {icon} - The weather icon image for the day
    */
   this.getIconUrl = function(){
     return icon;
   };
 
   /**
+   * {windMax} - the max wind speed for the day
    */
   this.getMaxWindSpeed = function(){
     return windMax;
   };
 
   /**
+   * {humidity} - the avg humidity for the day
    */
   this.getHumidity = function(){
     return humidity;

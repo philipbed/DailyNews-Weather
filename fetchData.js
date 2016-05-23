@@ -29,7 +29,7 @@ var initialize = function(){
   function parseItems(items){
 
     for( var i = 0;i < items.length;i++)
-      var list = $("#target").append("<ul id='item'></ul>");
+      var list = $("#target").append("<ul class='item'></ul>");
 
     for( var i = 0;i < items.length; i++){
       var item = items[i];
@@ -52,7 +52,7 @@ var initialize = function(){
 
 
       // add thumbnail image
-      // var imageItem = "<li><img src="+image+"/></li>";
+      // var imageItem = "<li><img src="+image+"></li>";
       // list.append(imageItem);
     }
     // $("#title").html(title);
