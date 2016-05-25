@@ -118,6 +118,7 @@ function Weather(state,city){
     list.append("<li class='low'>"+forecastData.getLowTemp()+"</li>");
     list.append("<li class='wind'>"+forecastData.getMaxWindSpeed()+"</li>");
     list.append("<li class='humidity'>"+forecastData.getHumidity()+"</li>");
+    list.append("<li class='conditions'>"+forecastData.getDayConditions()+"</li>")
 
     // add thumbnail image
 

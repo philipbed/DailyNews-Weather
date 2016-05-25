@@ -39,16 +39,16 @@ var initialize = function(){
       var link = item.link;
 
       // add title and description
-      var list = $("ul").eq(i);
-      list.append("<li>"+title+"</li>");
-      list.append("<li>"+desc+"</li>");
+      var lst = $(".item").eq(i);
+      lst.append("<li>"+title+"</li>");
+      lst.append("<li>"+desc+"</li>");
 
       // add link to full story
       var linkText = "Click Here";
       var remainingLinkText = "To Read The Full Story";
       var linkClass = "navLink";
       var listItem = "<li><a class="+linkClass+" href="+link+" target='_blank'>"+linkText+"</a>"+remainingLinkText+"</li>";
-      list.append(listItem);
+      lst.append(listItem);
 
 
       // add thumbnail image

@@ -1,0 +1,15 @@
+#date{
+  text-align: center;
+}
+
+.weather{
+  margin: auto;
+  width: 600px;
+  float: right;
+}
+
+div#target {
+  margin: auto;
+  width:720px;
+  float: left;
+}
