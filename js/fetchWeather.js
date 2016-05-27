@@ -113,7 +113,8 @@ function Weather(state,city){
     $(".weather").append("<ul class='weatherItem'></ul>");
 
     var list = $(".weatherItem");
-    console.log(forecastData.getHighTemp());
+    var title = $("div.mdl-card__title");
+    title.text(month+"/"+day+"/"+year);
     list.append("<li class='high'>"+forecastData.getHighTemp()+"</li>");
     list.append("<li class='low'>"+forecastData.getLowTemp()+"</li>");
     list.append("<li class='wind'>"+forecastData.getMaxWindSpeed()+"</li>");
