@@ -109,12 +109,26 @@ function Weather(state,city){
 
     var forecastData = new DayForecast(date,today);
 
-    $("#date").text(month+"/"+day+"/"+year);
-    $(".weather").append("<ul class='weatherItem'></ul>");
+    //$("#date").text(month+"/"+day+"/"+year);
+    //$(".weather").append("<ul class='weatherItem'></ul>");
 
-    var list = $(".weatherItem");
-    var title = $("div.mdl-card__title");
-    title.text(month+"/"+day+"/"+year);
+    //var list = $(".weatherItem");
+    var title = $(".mdl-card__title");
+    var titleText = $(".mdl-card__title-text");
+    titleText.text(month+"/"+day+"/"+year);
+
+    var media = $(".mdl-card__media");
+
+    $("#image").attr("src",forecastData.getIconUrl());
+
+    var high = $("#high h6");
+    high.text("High: "+forecastData.getHighTemp());
+
+    var low = $("#low h6");
+    low.text("Low: "+forecastData.getLowTemp());
+
+
+    /*
     list.append("<li class='high'>"+forecastData.getHighTemp()+"</li>");
     list.append("<li class='low'>"+forecastData.getLowTemp()+"</li>");
     list.append("<li class='wind'>"+forecastData.getMaxWindSpeed()+"</li>");
@@ -125,6 +139,7 @@ function Weather(state,city){
 
     var imageItem = "<li><img src="+forecastData.getIconUrl()+"></li>";
     list.append(imageItem);
+    */
   };
 
 

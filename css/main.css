@@ -3,11 +3,38 @@
 }
 
 .weather{
-  margin: auto;
+  margin-right: 50px;
   width: 600px;
   float: right;
 }
 
+.mdl-card__title-text{
+  padding-left: 100px;
+}
+
+.mdl-card__media.img{
+  background-color: transparent;
+  padding-left: 20px;
+  height: 95px;
+}
+
+#span1{
+  float: left;
+}
+
+#image{
+  height: 75px;
+}
+
+#high{
+  float: right;
+  padding-right: 50px;
+}
+
+#low{
+  text-align: right;
+  padding-right: 55px;
+}
 div#target {
   margin: auto;
   width:720px;
