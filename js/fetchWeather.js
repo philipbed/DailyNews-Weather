@@ -121,11 +121,16 @@ function Weather(state,city){
 
     $("#image").attr("src",forecastData.getIconUrl());
 
+    $("figcaption").text(forecastData.getDayConditions());
+
     var high = $("#high h6");
     high.text("High: "+forecastData.getHighTemp());
 
     var low = $("#low h6");
     low.text("Low: "+forecastData.getLowTemp());
+
+    var windSpeed = $("#windSpeed h6").text();
+    $("#windSpeed h6").text(windSpeed + forecastData.getMaxWindSpeed()+" mph");
 
 
     /*

@@ -6,6 +6,7 @@
   margin-right: 50px;
   width: 600px;
   float: right;
+  height: 300px;
 }
 
 .mdl-card__title-text{
@@ -19,11 +20,17 @@
 }
 
 #span1{
+  width: 160px;
   float: left;
 }
 
+
 #image{
   height: 75px;
+}
+
+figcaption{
+  display: inline-block;
 }
 
 #high{
@@ -35,6 +42,16 @@
   text-align: right;
   padding-right: 55px;
 }
+
+#span2{
+  width: 160px;
+}
+
+#windSpeed h6{
+  text-align: center;
+}
+
+
 div#target {
   margin: auto;
   width:720px;

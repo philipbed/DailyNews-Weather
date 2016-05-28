@@ -9,16 +9,25 @@
 <body>
   <p id="date"></p>
   <div class="weather mdl-card mdl-shadow--16dp">
+    <div class="shell">
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text"></h2>
     </div>
 
     <div class="mdl-card__media img">
-      <span id="span1"><img id='image'></span>
-      <div id="high"><h6></h6></div><br><br>
-      <div id="low"><h6></h6></div>
-
-    </div>
+      <span id="span1">
+        <figure>
+        <img id='image'>
+        <figcaption></figcaption>
+        </figure>
+      </span>
+      <span id="span2">
+        <div id="high"><h6></h6></div><br><br>
+        <div id="low"><h6></h6></div>
+      </span>
+    </div><br><br><br>
+  </div>
+    <div id="windSpeed"><hr> <h6>Wind Speed:</h6></div>
   </div>
   <div id="target"></div>
   <!-- <ul id="first">
