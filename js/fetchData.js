@@ -29,10 +29,12 @@ var initialize = function(){
   function parseItems(items){
 
     for( var i = 0;i < items.length;i++)
-      var list = $("#target").append("<ul class='item'></ul>");
+      // var list = $("#target").append("<ul class='item'></ul>");
+      var list = $("body").append("<div class='item mdl-card mdl-shadow--16dp'></div><br><br>");
 
-    for( var i = 0;i < items.length; i++){
+   for( var i = 0;i < items.length; i++){
       var item = items[i];
+      // var item = items[0];
       var title = item.title;
       var desc = item.description;
       var image = item.thumbnail;
@@ -40,15 +42,19 @@ var initialize = function(){
 
       // add title and description
       var lst = $(".item").eq(i);
-      lst.append("<li>"+title+"</li>");
-      lst.append("<li>"+desc+"</li>");
+      lst.append("<div class='newsTitle mdl-card__title'></div>")
+      $(".newsTitle").eq(i).append("<h2 class='mdl-card__title-text'>"+title+"</h2>");
+      lst.append("<div class='mdl-card__supporting-text'>"+desc+"</div>");
 
       // add link to full story
       var linkText = "Click Here";
       var remainingLinkText = "To Read The Full Story";
-      var linkClass = "navLink";
+      var linkClass = 'navLink';
       var listItem = "<li><a class="+linkClass+" href="+link+" target='_blank'>"+linkText+"</a>"+remainingLinkText+"</li>";
-      lst.append(listItem);
+
+      lst.append("<div class="+linkClass+" 'mdl-card__actions mdl-card--border'> \
+      <a class='mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' \
+      href="+link+" target='_blank '>"+linkText+" </a>"+remainingLinkText+"</div><br>");
 
 
       // add thumbnail image

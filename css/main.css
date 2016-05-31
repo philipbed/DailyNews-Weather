@@ -8,7 +8,12 @@
   float: right;
   height: 300px;
 }
-
+/*
+.shell{
+  background: #1ab2ff;
+  height: 231px;
+}
+*/
 .mdl-card__title-text{
   padding-left: 100px;
 }
@@ -56,4 +61,8 @@ div#target {
   margin: auto;
   width:720px;
   float: left;
+}
+
+.newsTitle .mdl-card__title-text{
+  padding: 0;
 }
