@@ -16,6 +16,7 @@ $(document).ready(function(){
    * @param: {weatherForecast [JSON Object] } -  is the week's forecast in json.
    */
   $.when(forecast).done(function(weatherForecast){
+      /** @see parseDayWeather(weather) */
       var forecastObj = weatherapp.parseDayWeather(weatherForecast.simpleforecast);
   });
 
