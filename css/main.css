@@ -47,7 +47,7 @@ figcaption{
   width: 160px;
 }
 
-#windSpeed h6{
+#humidity h6, #windSpeed h6{
   text-align: center;
 }
 

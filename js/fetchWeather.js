@@ -131,7 +131,12 @@ function Weather(state,city){
     low.text("Low: "+forecastData.getLowTemp());
 
     var windSpeed = $("#windSpeed h6").text();
-    $("#windSpeed h6").text(windSpeed + forecastData.getMaxWindSpeed()+" mph");
+    var newWindSpeedText = appendText(windSpeed, forecastData.getMaxWindSpeed()+" mph, headed "+forecastData.getDirection());
+    $("#windSpeed h6").text(newWindSpeedText);
+
+    var humidity = $("#humidity h6").text();
+    var newText = appendText(humidity, forecastData.getHumidity()+" %");
+    $("#humidity h6").text(newText);
 
 
     /*
@@ -163,17 +168,30 @@ function Weather(state,city){
  */
 function DayForecast( date, forecastInfo ){
   /** @private member variables */
+  var directions = {
+                    "E":"East",
+                    "N":"North",
+                    "S":"South",
+                    "W":"West",
+                    "NE":"Northeast",
+                    "NW":"Northwest",
+                    "SE":"Southeast",
+                    "SW":"Southwest",
+                  };
+
   var high = forecastInfo.high.fahrenheit;
   var low = forecastInfo.low.fahrenheit;
   var conditions = forecastInfo.conditions;
   var icon = forecastInfo.icon_url;
   var windMax = forecastInfo.maxwind.mph;
+
   var humidity = forecastInfo.avehumidity;
 
   /**
    * @return {date [Date Object]} - today's date
    */
   this.getDate = function(){
+
     return date;
   };
 
@@ -218,4 +236,14 @@ function DayForecast( date, forecastInfo ){
   this.getHumidity = function(){
     return humidity;
   };
+
+  this.getDirection = function(){
+    return directions[forecastInfo.avewind.dir];
+  }
+
+
 }
+
+function appendText(origText, textToAppend){
+  return origText + textToAppend
+};
