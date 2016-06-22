@@ -6,18 +6,12 @@ $(document).ready(function(){
     $("#tab1").load("weather.html");
   });
 
+  
 
 });
 
-function readHtmlFile(file)
-{
-    var rawFile = new File([""],file);
-    var reader = new FileReader();
-
-    reader.onload = function(event){
-      console.log(rawFile.getAsText("utf-8"));
-    }
-
-    reader.readAsText(rawFile);
-
+function firstSlide(element){
+  $(element).slick(function(){
+    rt1: true
+  });
 }
