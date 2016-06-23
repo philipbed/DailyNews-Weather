@@ -2,21 +2,22 @@
   text-align: center;
 }
 
-.weather{
+.weather.card.small{
   margin-right: 50px;
-  width: 600px;
+  width: 300px;
   margin: auto;
-  height: 24em;
+  height: 18em;
 }
 
-.mdl-card__title-text{
-  padding-left: 100px;
+.card-title{
+  padding-left: 3em;
 }
 
-.mdl-card__media.img{
+.card .card-image img#image{
   background-color: transparent;
-  padding-left: 20px;
+  margin:auto;
   height: 95px;
+  width: 40%;
 }
 
 #span1{
@@ -31,6 +32,7 @@
 
 figcaption{
   display: inline-block;
+  text-align: center;
 }
 
 #high{
@@ -58,9 +60,6 @@ div#target {
   float: left;
 }
 
-.newsTitle .mdl-card__title-text{
-  padding: 0;
-}
 
 .newsImg {
   width: 330px;

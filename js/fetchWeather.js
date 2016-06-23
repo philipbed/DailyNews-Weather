@@ -114,11 +114,11 @@ function Weather(state,city){
     //$(".weather").append("<ul class='weatherItem'></ul>");
 
     //var list = $(".weatherItem");
-    var title = $(".mdl-card__title");
-    var titleText = $(".mdl-card__title-text");
-    titleText.text(month+"/"+day+"/"+year);
+    var titleText = $(".card-title");
+    // var titleText = $(".mdl-card__title-text");
+    titleText.prepend(month+"/"+day+"/"+year);
 
-    var media = $(".mdl-card__media");
+    var media = $(".card-image");
 
     $("#image").attr("src",forecastData.getIconUrl());
 
