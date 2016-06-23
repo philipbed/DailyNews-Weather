@@ -6,11 +6,8 @@
   margin-right: 50px;
   width: 300px;
   margin: auto;
-  height: 18em;
-}
+  height: 221px;
 
-.card-title{
-  padding-left: 3em;
 }
 
 .card .card-image img#image{
@@ -18,6 +15,25 @@
   margin:auto;
   height: 95px;
   width: 40%;
+
+}
+
+div.card .card-content{
+  padding: 0px 10px 0px 25px;
+}
+/*
+i.material-icons.right{
+  padding-top:10px;
+}*/
+
+.weather.card.small .card-image{
+  background-color: #aedee4;
+  max-height: 100%;
+  height:180px;
+}
+
+.weather.z-depth-5{
+  box-shadow: 0 27px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgb(174, 222, 228);
 }
 
 #span1{
