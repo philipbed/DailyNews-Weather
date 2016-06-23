@@ -6,12 +6,13 @@ $(document).ready(function(){
     $("#tab1").load("weather.html");
   });
 
-  
+
 
 });
 
 function firstSlide(element){
   $(element).slick(function(){
-    rt1: true
+      slidesToShow: 1
+
   });
 }
