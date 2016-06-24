@@ -51,14 +51,12 @@ figcaption{
   text-align: center;
 }
 
-#high{
-  float: right;
-  padding-right: 50px;
+#high, #low, #windSpeed, #humidity{
+  text-align: center;
 }
 
-#low{
-  text-align: right;
-  padding-right: 55px;
+.weather .card .card-reveal{
+  overflow: hidden;
 }
 
 #span2{

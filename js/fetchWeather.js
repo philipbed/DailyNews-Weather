@@ -105,6 +105,8 @@ function Weather(state,city){
     var month = date.month;
     var day = date.day;
     var year = date.year;
+
+    var degreeSym = String.fromCharCode(176);
     // store date object
     date = new Date(year,month,day);
 
@@ -124,19 +126,19 @@ function Weather(state,city){
 
     $("figcaption").text(forecastData.getDayConditions());
 
-    var high = $("#high h6");
-    high.text("High: "+forecastData.getHighTemp());
+    var high = $("#high");
+    high.text("High: "+forecastData.getHighTemp()+degreeSym);
 
-    var low = $("#low h6");
-    low.text("Low: "+forecastData.getLowTemp());
+    var low = $("#low");
+    low.text("Low: "+forecastData.getLowTemp()+degreeSym);
 
-    var windSpeed = $("#windSpeed h6").text();
+    var windSpeed = $("#windSpeed").text();
     var newWindSpeedText = appendText(windSpeed, forecastData.getMaxWindSpeed()+" mph, headed "+forecastData.getDirection());
-    $("#windSpeed h6").text(newWindSpeedText);
+    $("#windSpeed").text(newWindSpeedText);
 
-    var humidity = $("#humidity h6").text();
+    var humidity = $("#humidity").text();
     var newText = appendText(humidity, forecastData.getHumidity()+" %");
-    $("#humidity h6").text(newText);
+    $("#humidity").text(newText);
 
 
     /*
