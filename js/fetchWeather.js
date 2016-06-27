@@ -17,12 +17,12 @@ $(document).ready(function(){
    */
   $.when(forecast).done(function(weatherForecast){
       /** @see parseDayWeather(weather) */
-      var forecastObj = weatherapp.parseDayWeather(weatherForecast.simpleforecast);
+      var forecastObj = weatherapp.parseAll(weatherForecast.simpleforecast);
   });
 
 
 
-  
+
 
 
 
@@ -53,7 +53,7 @@ function Weather(state,city){
    * Right now it is set to the 5 days forecast. (Section: "/'forecast'/")
    * @private
   */
-  this.apiLink = "http://api.wunderground.com/api/"+apiKey+"/forecast/q/"+this.stateCode+"/"+this.cityName+".json",
+  this.apiLink = "http://api.wunderground.com/api/"+apiKey+"/forecast10day/q/"+this.stateCode+"/"+this.cityName+".json",
 
   /**
    * This function will make the call to retrieve the 5 day forecast
@@ -100,9 +100,9 @@ function Weather(state,city){
    * This function will handle parsing through the weather for a day.
    * @param { weather [JSON Object] } -
    */
-  this.parseDayWeather = function(weather){
+  this.parseDayWeather = function(today,numClass){
     // today
-    var today = weather.forecastday[0];
+    // var today = weather.forecastday[0];
     // get Date
     var date = today.date;
     var month = date.month;
@@ -119,29 +119,29 @@ function Weather(state,city){
     //$(".weather").append("<ul class='weatherItem'></ul>");
 
     //var list = $(".weatherItem");
-    var titleText = $(".card-title");
+    var titleText = $(numClass+" .card-title");
     // var titleText = $(".mdl-card__title-text");
     titleText.prepend(month+"/"+day+"/"+year);
 
-    var media = $(".card-image");
+    var media = $(numClass+" .card-image");
 
-    $("#image").attr("src",forecastData.getIconUrl());
+    $(numClass+" .image").attr("src",forecastData.getIconUrl());
 
-    $("figcaption").text(forecastData.getDayConditions());
+    $(numClass+" figcaption").text(forecastData.getDayConditions());
 
-    var high = $("#high");
+    var high = $(numClass+" .high");
     high.text("High: "+forecastData.getHighTemp()+degreeSym);
 
-    var low = $("#low");
+    var low = $(numClass+" .low");
     low.text("Low: "+forecastData.getLowTemp()+degreeSym);
 
-    var windSpeed = $("#windSpeed").text();
+    var windSpeed = $(numClass+" .windSpeed").text();
     var newWindSpeedText = appendText(windSpeed, forecastData.getMaxWindSpeed()+" mph, headed "+forecastData.getDirection());
-    $("#windSpeed").text(newWindSpeedText);
+    $(numClass+" .windSpeed").text(newWindSpeedText);
 
-    var humidity = $("#humidity").text();
+    var humidity = $(numClass+" .humidity").text();
     var newText = appendText(humidity, forecastData.getHumidity()+" %");
-    $("#humidity").text(newText);
+    $(numClass+" .humidity").text(newText);
 
 
     /*
@@ -157,6 +157,16 @@ function Weather(state,city){
     list.append(imageItem);
     */
   };
+
+  this.parseAll = function(weather){
+    var numClasses = [".zero",".one",".two",".three",".four",".five",".six"];
+    var week = 7;
+  //  for(var idx = 0; idx < weather.forecastday.length; idx++){
+  for(var idx = 0; idx < week; idx++){
+     var numClass = numClasses[idx];
+     this.parseDayWeather(weather.forecastday[idx],numClass );
+   }
+ };
 
 
 };

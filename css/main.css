@@ -10,7 +10,7 @@
 
 }
 
-.card .card-image img#image{
+.card .card-image img.image{
   background-color: transparent;
   margin:auto;
   height: 95px;
@@ -42,7 +42,7 @@ i.material-icons.right{
 }
 
 
-#image{
+.image{
   height: 75px;
 }
 
@@ -51,7 +51,7 @@ figcaption{
   text-align: center;
 }
 
-#high, #low, #windSpeed, #humidity{
+.high, .low, .windSpeed, .humidity{
   text-align: center;
 }
 
@@ -63,7 +63,7 @@ figcaption{
   width: 160px;
 }
 
-#humidity h6, #windSpeed h6{
+.humidity h6, .windSpeed h6{
   text-align: center;
 }
 
@@ -77,4 +77,8 @@ div#target {
 
 .newsImg {
   width: 330px;
+}
+
+.carousel.enlarge {
+  height: 500px;
 }
