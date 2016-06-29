@@ -187,11 +187,7 @@ function DayForecast( date, forecastInfo ){
                     "E":"East",
                     "N":"North",
                     "S":"South",
-                    "W":"West",
-                    "NE":"Northeast",
-                    "NW":"Northwest",
-                    "SE":"Southeast",
-                    "SW":"Southwest",
+                    "W":"West"
                   };
 
   var high = forecastInfo.high.fahrenheit;
@@ -253,7 +249,30 @@ function DayForecast( date, forecastInfo ){
   };
 
   this.getDirection = function(){
-    return directions[forecastInfo.avewind.dir];
+    var windDir = forecastInfo.avewind.dir;
+
+    if(windDir.length == 1){
+      console.log(windDir);
+      return directions[forecastInfo.avewind.dir];}
+    else if(windDir.length > 1){
+
+      windDir = windDir.split("");
+      var completeWindDir = "";
+      console.log(windDir);
+      for(var idx in windDir){
+
+          if(idx == windDir.length -1){
+            completeWindDir += directions[windDir[idx]];
+          }
+          else{
+          completeWindDir += directions[windDir[idx]];
+          completeWindDir += "-";
+        }
+      }
+
+      return completeWindDir;
+    }
+
   }
 
 
