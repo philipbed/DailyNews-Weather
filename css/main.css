@@ -32,10 +32,6 @@ i.material-icons.right{
   height:180px;
 }
 
-.weather.z-depth-5{
-  box-shadow: 0 27px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgb(174, 222, 228);
-}
-
 #span1{
   width: 160px;
   float: left;
@@ -81,4 +77,30 @@ div#target {
 
 .carousel.enlarge {
   height: 500px;
+  //background: #424242;
+  margin-top: 50px;
+  //margin-left: 100px;
+}
+
+.tabs .tab a.turn-blue{
+  color: #aedee4;
+}
+
+/*.tabs .tab a.turn-blue:hover {
+  color:#06c5dd;
+}*/
+
+.tabs div.indicator {
+  background: #aedee4;
+}
+
+
+
+
+body{
+  background: #212121;
+}
+
+.turn-black , ul.tabs{
+  background: black;
 }

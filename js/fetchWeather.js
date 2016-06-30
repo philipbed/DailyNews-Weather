@@ -252,13 +252,12 @@ function DayForecast( date, forecastInfo ){
     var windDir = forecastInfo.avewind.dir;
 
     if(windDir.length == 1){
-      console.log(windDir);
+    
       return directions[forecastInfo.avewind.dir];}
     else if(windDir.length > 1){
 
       windDir = windDir.split("");
       var completeWindDir = "";
-      console.log(windDir);
       for(var idx in windDir){
 
           if(idx == windDir.length -1){
