@@ -42,7 +42,7 @@ $(document).ready(function(){
       //   $(tabs[1]).css("background-color", "#aedee4");
       // }
     });
-    $.get("weather_copy.html",function(data){
+    $.get("weather.html",function(data){
       var scripts = $(data).filter("script");
       $
       scripts.each(function(){
