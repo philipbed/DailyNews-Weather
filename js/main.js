@@ -1,50 +1,38 @@
 $(document).ready(function(){
 
-  //$("#weatherTab").click(function(){
+  function changeColor(elem,color){
+    if(elem.find("a").hasClass("active")){
+      elem.children().css("color",color);
+      $(".indicator").css("background-color", color);
+  }
+  else
+    elem.children().css("color",color);
+  };
 
-    // readHtmlFile("file:///C:/Users/Computer%20User/Documents/News/weather.html");
 
-
-
-
-    $("li.tab").hover(function(event){
-
-      // var weatherTabHovered = tabs[0].is(":hover");
-      // if(weatherTabHovered){
-        if($(this).find("a").hasClass("active")){
-        $(this).children().css("color","#06c5dd");
-        $(".indicator").css("background-color", "#06c5dd");
-      }
-      else{$(this).children().css("color","#06c5dd");}
-      // }
-
-      // else{
-      //   $(tabs[1]).css("color","#06c5dd");
-      //   $(tabs[1]).css("background-color", "#06c5dd");
-      // }
-
+    $("li.tab").hover(function(){
+      changeColor($(this),"#06c5dd");
     }, function(event){
-      // console.log($(this));
-      // var weatherTabHovered = event.target.is(":hover");
-      // if(weatherTabHovered){
-      if($(this).find("a").hasClass("active")){
-      $(this).children().css("color","#aedee4");
-      $(".indicator").css("background-color", "#aedee4");
-    }
-    else{$(this).children().css("color","#aedee4");}
-
-        // /$(".indicator").css("background-color", "#aedee4");
-
-      // }
-      //
-      // else{
-      //   $(tabs[1]).css("color","#aedee4");
-      //   $(tabs[1]).css("background-color", "#aedee4");
-      // }
+      changeColor($(this), "#aedee4");
     });
+
+    $.get("news.html",function(data){
+
+      // var scripts = $(data).filter("script");
+      //
+      // scripts.each(function(){
+      //   var script = $(this);
+      //   $("body").append(script);
+      // })
+
+      var news = $(data).filter('.row');
+      $("#newsTab").append(news);
+
+    });
+
     $.get("weather.html",function(data){
       var scripts = $(data).filter("script");
-      $
+
       scripts.each(function(){
         var script = $(this);
         $("body").append(script);
@@ -58,7 +46,7 @@ $(document).ready(function(){
               shift:0,
               padding:300,
 
-        });
+      });
     },"html");
   //});
 

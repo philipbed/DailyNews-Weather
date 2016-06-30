@@ -2,7 +2,7 @@ $(document).ready(function (){
   initialize();
 });
 
-var initialize = function(){
+ function initialize(){
   var link = "http://feeds.abcnews.com/abcnews/internationalheadlines";
   $.ajax({
     type: 'GET',
@@ -38,7 +38,7 @@ var initialize = function(){
 
     // add a google card for every news story
     for( var i = 0;i < items.length;i++)
-      var list = $("body").append("<div class='item mdl-card mdl-shadow--16dp'></div><br><br>");
+      var list = $(".row").append("<div class='item card small col s3 z-depth-5 zero'></div>");
 
    for( var i = 0;i < items.length; i++){
      // get the title, description, image and link for every
@@ -48,27 +48,30 @@ var initialize = function(){
       var desc = item.description;
       var image = item.thumbnail;
       var link = item.link;
-
-      // add title and description
       var card = $(".item").eq(i);
-      card.append("<div class='newsTitle mdl-card__title'></div>")
-      $(".newsTitle").eq(i).append("<h2 class='mdl-card__title-text'>"+title+"</h2>");
-      card.append("<div class='mdl-card__supporting-text'>"+desc+"</div>");
-
       // add image only if it is ABC's default
       if(image.toLowerCase().indexOf("default") == 0){
         var img = "<img class='newsImg' src="+image+">";
-        card.append("<div class='mdl-card__media'>"+img+"</div>");
+        card.append("<div class='card-image waves-effect waves-block waves-light'>"+img+"</div>");
       }
-      // add link to full story
 
-      var linkText = "Click Here";
-      var remainingLinkText = "To Read The Full Story";
-      var linkClass = 'navLink';
-      var listItem = "<li><a class="+linkClass+" href="+link+" target='_blank'>"+linkText+"</a>"+remainingLinkText+"</li>";
-      card.append("<div class="+linkClass+" 'mdl-card__actions mdl-card--border'> \
-      <a class='mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' \
-      href="+link+" target='_blank '>"+linkText+" </a>"+remainingLinkText+"</div><br>");
+      // add title and description
+
+      card.append("<div class='newsTitle card-content'></div>")
+      $(".newsTitle").eq(i).append("<span class='activator'><span class='card-title activator grey-text text-darken-4'>"+title+
+      "<i class='material-icons right activator'>"+more_vert+"</i></span></span>");
+      // card.append("<div class='card-reveal'>"+desc+"</div>");
+      //
+      //
+      // // add link to full story
+      //
+      // var linkText = "Click Here";
+      // var remainingLinkText = "To Read The Full Story";
+      // var linkClass = 'navLink';
+      // var listItem = "<li><a class="+linkClass+" href="+link+" target='_blank'>"+linkText+"</a>"+remainingLinkText+"</li>";
+      // card.append("<div class="+linkClass+" 'mdl-card__actions mdl-card--border'> \
+      // <a class='mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' \
+      // href="+link+" target='_blank '>"+linkText+" </a>"+remainingLinkText+"</div><br>");
 
     }
   }
