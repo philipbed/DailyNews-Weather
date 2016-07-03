@@ -36,9 +36,14 @@ $(document).ready(function (){
   function parseItems(items){
 
     // add a google card for every news story
-    for( var i = 0;i < items.length;i++)
-      var list = $(".row").append("<div class='card small col s4 offset-s1 z-depth-5 item zero'></div>");
+    for( var i = 0;i < items.length;i++){
+      if (i % 3 == 0){
+        var list = $(".row").append("<div class='card small col s3 offset-s1 z-depth-5 item first'></div>");
+        continue;
+      }
 
+      var list = $(".row").append("<div class='card small col s3 offset-s1 z-depth-5 item'></div>");
+    }
    for( var i = 0;i < items.length; i++){
      // get the title, description, image and link for every
       var item = items[i];

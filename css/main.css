@@ -4,9 +4,9 @@
 
 .weather.card.small{
   margin-right: 50px;
-  width: 300px;
+  width: 320px;
   margin: auto;
-  height: 221px;
+  height: 320px;
 
 }
 
@@ -29,7 +29,7 @@ i.material-icons.right{
 .weather.card.small .card-image{
   background-color: #aedee4;
   max-height: 100%;
-  height:180px;
+  height:270px;
 }
 
 #span1{
@@ -110,6 +110,10 @@ body{
   font-size: 14px;
 }
 
-.card .small .col .s3{
-  
+.row .card.small.offset-s1.first {
+  margin-left: 50px;
+}
+
+.card-image figure{
+  margin: 75px 40px;
 }

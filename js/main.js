@@ -16,19 +16,19 @@ $(document).ready(function(){
       changeColor($(this), "#aedee4");
     });
 
-    // $.get("news.html",function(data){
-    //
-    //   var scripts = $(data).filter("script");
-    //
-    //   scripts.each(function(){
-    //     var script = $(this);
-    //     $("body").append(script);
-    //   })
-    //
-    //   var news = $(data).filter('.row');
-    //   $("#tab2").append(news);
-    //
-    // });
+    $.get("news.html",function(data){
+
+      var scripts = $(data).filter("script");
+
+      scripts.each(function(){
+        var script = $(this);
+        $("body").append(script);
+      })
+
+      var news = $(data).filter('.row');
+      $("#tab2").append(news);
+
+    });
 
     $.get("weather.html",function(data){
       var scripts = $(data).filter("script");
