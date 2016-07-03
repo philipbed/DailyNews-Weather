@@ -3,13 +3,12 @@ $(document).ready(function (){
 });
 
  function initialize(){
-  var link = "http://feeds.abcnews.com/abcnews/internationalheadlines";
+  //var link = "http://feeds.abcnews.com/abcnews/internationalheadlines";
   $.ajax({
     type: 'GET',
     contentType: 'application/x-www-form-urlencoded',
-    url:'http://rss2json.com/api.json',
-    data:{"rss_url":link},
-
+    url:'../files/rss_feed.json',
+    //data:{"rss_url":link},
     dataType:'json',
     success: function(result){
       $("#feed").html(parse(result));
@@ -38,7 +37,7 @@ $(document).ready(function (){
 
     // add a google card for every news story
     for( var i = 0;i < items.length;i++)
-      var list = $(".row").append("<div class='item card small col s3 z-depth-5 zero'></div>");
+      var list = $(".row").append("<div class='card small col s4 offset-s1 z-depth-5 item zero'></div>");
 
    for( var i = 0;i < items.length; i++){
      // get the title, description, image and link for every
@@ -49,17 +48,18 @@ $(document).ready(function (){
       var image = item.thumbnail;
       var link = item.link;
       var card = $(".item").eq(i);
+
       // add image only if it is ABC's default
-      if(image.toLowerCase().indexOf("default") == 0){
-        var img = "<img class='newsImg' src="+image+">";
+      if(image.toLowerCase().indexOf("default") == -1){
+        console.log(image);
+        var img = "<img class='image newsImg' src=" +image+">";
         card.append("<div class='card-image waves-effect waves-block waves-light'>"+img+"</div>");
       }
-
+      console.log(card);
       // add title and description
 
-      card.append("<div class='newsTitle card-content'></div>")
-      $(".newsTitle").eq(i).append("<span class='activator'><span class='card-title activator grey-text text-darken-4'>"+title+
-      "<i class='material-icons right activator'>"+more_vert+"</i></span></span>");
+      card.append("<div class='card-content newsTitle'></div>");
+      $(".newsTitle").eq(i).append("<span class='activator'><span class='card-title activator grey-text text-darken-4'>"+title+"<i class='material-icons right activator'>more_vert</i></span></span>");
       // card.append("<div class='card-reveal'>"+desc+"</div>");
       //
       //

@@ -104,3 +104,12 @@ body{
 .turn-black , ul.tabs{
   background: black;
 }
+
+.card .card-content.newsTitle .card-title{
+  line-height: 0;
+  font-size: 14px;
+}
+
+.card .small .col .s3{
+  
+}

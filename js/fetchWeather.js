@@ -79,7 +79,7 @@ function Weather(state,city){
     jqxhr = $.ajax({
       type: 'GET',
       contentType: 'application/x-www-form-urlencoded',
-      url: this.apiLink,
+      url: "../files/Rochester.json",
       dataType: "JSON",
       success: function(data){
         return data
@@ -252,7 +252,7 @@ function DayForecast( date, forecastInfo ){
     var windDir = forecastInfo.avewind.dir;
 
     if(windDir.length == 1){
-    
+
       return directions[forecastInfo.avewind.dir];}
     else if(windDir.length > 1){
 
