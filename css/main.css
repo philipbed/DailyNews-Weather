@@ -12,9 +12,16 @@
 
 .card .card-image img.image{
   background-color: transparent;
-  margin:auto;
-  height: 95px;
-  width: 40%;
+  margin: auto;
+  height: 215px;
+  width: 100%;
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 
 }
 
@@ -116,4 +123,8 @@ body{
 
 .card-image figure{
   margin: 75px 40px;
+}
+
+.row .card.small.col {
+  padding: 0;
 }
