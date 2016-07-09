@@ -20,14 +20,6 @@ $(document).ready(function(){
       var forecastObj = weatherapp.parseAll(weatherForecast.simpleforecast);
   });
 
-
-
-
-
-
-
-
-
 });
 
 /**
@@ -79,7 +71,7 @@ function Weather(state,city){
     jqxhr = $.ajax({
       type: 'GET',
       contentType: 'application/x-www-form-urlencoded',
-      url: "../files/Rochester.json",
+      url: this.apiLink,
       dataType: "JSON",
       success: function(data){
         return data

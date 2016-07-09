@@ -3,12 +3,12 @@ $(document).ready(function (){
 });
 
  function initialize(){
-  //var link = "http://feeds.abcnews.com/abcnews/internationalheadlines";
+  var link = "http://feeds.abcnews.com/abcnews/internationalheadlines";
   $.ajax({
     type: 'GET',
     contentType: 'application/x-www-form-urlencoded',
-    url:'../files/rss_feed.json',
-    //data:{"rss_url":link},
+    url:'http://rss2json.com/api.json',
+    data:{"rss_url":link},
     dataType:'json',
     success: function(result){
       $("#feed").html(parse(result));
@@ -76,10 +76,10 @@ $(document).ready(function (){
       // add link to full story
 
       var linkText = "Click Here";
-      var remainingLinkText = "To Read The Full Story";
+      var remainingLinkText = "Read The Full Story";
       var linkClass = 'navLink';
-      var listItem = "<a class='waves-effect waves-light btn' "+linkClass+" href="+link+" target='_blank'>"+linkText+"</a>"+remainingLinkText;
-      card.append("<br><div class="+linkClass+" 'card-action'>"+listItem+"</div>");
+      var listItem = "<a class='waves-effect waves-light "+linkClass+"' id='blueLink' href="+link+" target='_blank'>"+remainingLinkText+"</a>";
+      card.append("<div class='card-action linkHolder'>"+listItem+"</div>");
 
     }
   }
