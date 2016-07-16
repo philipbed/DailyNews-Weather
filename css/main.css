@@ -129,10 +129,15 @@ div#target {
 }
 
 
-
+main {
+  flex: 1 0 auto;
+}
 
 body{
   background: #212121;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .turn-black , ul.tabs{
